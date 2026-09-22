@@ -4,23 +4,23 @@ service BusinessService {
 
 
 
-    //  @restrict: [
-    //     {
-    //         grant: 'READ',
-    //         to: 'READPROD'
-    //     },
-    //     {
-    //         grant: ['READ', 'UPDATE'],
-    //         to: 'Auditor'
-    //     },
-    //     {
-    //         grant: ['READ', 'CREATE', 'UPDATE'],
-    //         to: 'SuperAuditor'
-    //     }
-    // ]
+     @restrict: [
+        {
+            grant: 'READ',
+            to: 'READPROD'
+        },
+        {
+            grant: ['READ', 'UPDATE'],
+            to: 'Auditor'
+        },
+        {
+            grant: ['READ', 'CREATE', 'UPDATE'],
+            to: 'SuperAuditor'
+        }
+    ]
     entity AdminConfigurations as projection on schema.AdminConfiguration;
 
-    // @requires: 'ADMIN'
+    @requires: 'ADMIN'
     entity Users               as projection on schema.Users;
     entity Roles               as projection on schema.Roles;
     entity Products            as projection on schema.Products;

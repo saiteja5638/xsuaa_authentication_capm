@@ -3,19 +3,19 @@
   "tenant-mode": "dedicated",
   "scopes": [
     {
-      "name": "$XSAPPNAME.ADMIN",
+      "name": "$XSAPPNAME.READPROD",
       "description": "Read products"
     },
     {
-      "name": "$XSAPPNAME.AUDIT",
+      "name": "$XSAPPNAME.CREATEPROD",
       "description": "Create products"
     },
     {
-      "name": "$XSAPPNAME.VIWER",
+      "name": "$XSAPPNAME.UPDATEPROD",
       "description": "Update products"
     },
     {
-      "name": "$XSAPPNAME.SUPPORT",
+      "name": "$XSAPPNAME.DELETEPROD",
       "description": "Delete products"
     }
   ],
