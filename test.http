@@ -1,0 +1,2 @@
+DELETE http://localhost:4004/odata/v4/business/PurchaseOrders('07b16671-3e83-5b4e-9e0a-0ed1a5ca5f4c')
+Content-Type: application/json

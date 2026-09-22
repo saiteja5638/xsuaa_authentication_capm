@@ -1,6 +1,97 @@
 {
-  "scopes": [],
-  "attributes": [],
-  "role-templates": [],
-  "authorities-inheritance": false
+  "xsappname": "xsuaa-${org}-${space}",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.ADMIN",
+      "description": "Read products"
+    },
+    {
+      "name": "$XSAPPNAME.AUDIT",
+      "description": "Create products"
+    },
+    {
+      "name": "$XSAPPNAME.VIWER",
+      "description": "Update products"
+    },
+    {
+      "name": "$XSAPPNAME.SUPPORT",
+      "description": "Delete products"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "SuperAdmin",
+      "description": "Administrator - Full access",
+      "scope-references": [
+        "$XSAPPNAME.READPROD",
+        "$XSAPPNAME.CREATEPROD",
+        "$XSAPPNAME.UPDATEPROD",
+        "$XSAPPNAME.DELETEPROD"
+      ]
+    },
+    {
+      "name": "SuperViewer",
+      "description": "Employee - Read access",
+      "scope-references": [
+        "$XSAPPNAME.READPROD"
+      ]
+    },
+    {
+      "name": "Auditor",
+      "description": "Technical Team - Read and Update access",
+      "scope-references": [
+        "$XSAPPNAME.READPROD",
+        "$XSAPPNAME.UPDATEPROD"
+      ]
+    },
+    {
+      "name": "SuperAuditor",
+      "description": "Human Recruiter - Create and Update access",
+      "scope-references": [
+        "$XSAPPNAME.CREATEPROD",
+        "$XSAPPNAME.UPDATEPROD"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "AdminCollectionSuper",
+      "description": "Role Collection for Admin Users",
+      "role-template-references": [
+        "$XSAPPNAME.SuperAdmin"
+      ]
+    },
+    {
+      "name": "EmployeeCollectionSuper",
+      "description": "Role Collection for Employees",
+      "role-template-references": [
+        "$XSAPPNAME.SuperViewer"
+      ]
+    },
+    {
+      "name": "TechTeamCollectionSuper",
+      "description": "Role Collection for Technical Team",
+      "role-template-references": [
+        "$XSAPPNAME.Auditor"
+      ]
+    },
+    {
+      "name": "HumanRecruiterCollectionSuper",
+      "description": "Role Collection for Human Recruiters",
+      "role-template-references": [
+        "$XSAPPNAME.SuperAuditor"
+      ]
+    }
+  ],
+  "oauth2-configuration": {
+    "credential-types": [
+      "binding-secret",
+      "x509"
+    ],
+    "redirect-uris": [
+      "https://*.applicationstudio.cloud.sap/**"
+    ]
+  },
+  "attributes": []
 }
